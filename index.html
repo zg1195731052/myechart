@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+		<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="main" style="height:400px;margin: 0 auto;">
+			
+		</div>
+		<script type="text/javascript">
+			var myChart=echarts.init(document.getElementById('main'));
+			var option={
+				title:{
+					text:'自定义图表'
+				},
+				legend:{
+					data:['产品一','产品二','产品三'],
+					selected:{
+					'产品三':false
+					}
+				},
+				tooltip:{
+					trigger:'axis',
+					axisPointer:{
+						type:'cross'
+					}
+				},
+				xAxis:{
+					name:'日期',
+					type:'category',
+					data:['4-20','4-21','4-22','4-23','4-24','4-25','4-26','4-27','4-28']
+				},
+				dataZoom:{
+					type:'inside'
+				},
+				yAxis:[
+					{
+						name:['(单位:%)'],
+						nameRotate:'-90'
+					},
+					{
+						name:['(单位:万吨)']
+					}
+				
+				],
+				toolbox:{
+					show:true,
+					feature:{
+						dataView:{},
+						saveAsImage:{},
+						restore:{}
+					}
+				},
+				series:[
+					{
+						name:'产品一',
+						type:'bar',
+						data:[40,15,21,23,14,15,12,10,20]
+					
+					},
+					{
+						name:'产品二',
+						type:'line',
+						data:[14,15,12,10,20,10,40,60,40],
+						lineStyle:{
+							color: 'red',
+							type:'dashed'
+						}
+					},
+					{
+						name:'产品三',
+						type:'line',
+						data:[11,13,19,30,10,10,60,10,80]
+					}
+				]
+				
+			}
+			myChart.setOption(option)
+		</script>
+	</body>
+</html>
